@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <wiringPi.h>
 
-const int motorPins[] = {1,4,5,6};
+const int motorPins[] = {4,5,6, 10};
 const int CCWStep[] = {0x01, 0x02, 0x04, 0x08};
 const int  CWStep[] = {0x08, 0x04, 0x02, 0x01};
 
@@ -11,13 +11,12 @@ void moveOnePeriod(int dir, int ms)
     {
         for (int i=0; i<4; i++)
         {
-            if dir == 1)
+            if (dir == 1)
             {
                 digitalWrite(motorPins[i], (CCWStep[j] == (1<<i)) ? HIGH : LOW);
-            }
-            else
+            } else
             {
-                digitalWrite(motorPins[i], (CWSteps[j] == (1<<i)) ? HIGH : LOW);
+                digitalWrite(motorPins[i], (CWStep[j] == (1<<i)) ? HIGH : LOW);
             }
             printf("motorPin %d, %d \n",motorPins[i],digitalRead(motorPins[i]));
         }
@@ -60,8 +59,18 @@ int main(void)
     while(1)
     {
         moveSteps(1, 3, 512);
+        
+        digitalWrite(motorPins[0], LOW);
+        digitalWrite(motorPins[1], LOW);
+        digitalWrite(motorPins[2], LOW);
+        digitalWrite(motorPins[3], LOW);
         delay(500);
         moveSteps(0, 3, 512);
+        
+        digitalWrite(motorPins[0], LOW);
+        digitalWrite(motorPins[1], LOW);
+        digitalWrite(motorPins[2], LOW);
+        digitalWrite(motorPins[3], LOW);
         delay(500);
     }
     return 0;
