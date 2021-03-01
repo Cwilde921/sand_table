@@ -2,11 +2,11 @@
 
 // ===== Table implimentation =====
 Table::Table()
-    : m_delay_ms(3)
+    : m_delay_ms(config::init_delay_ms)
 {
     if (wiringPiSetup() == -1)
     {
-        std::cout<< "wiringPi setup failed" << std::endl;
+        throw std::exception("wiringPi setup failed");
         return;
     }
     m_motor_th = Motor(pins_th);

@@ -8,6 +8,7 @@
 #include <string>
 #include <functional>
 #include <wiringPi.h>
+#include <stdexcept>
 
 #include "hardware_config.h"
 #include "Motor.h"
@@ -28,7 +29,7 @@ class Table
         Motor m_motor_r;
 
         int m_offset_counter;
-        int m_steps_in_full_rotation;
+        // int m_steps_in_full_rotation;
         int m_delay_ms;
         double m_pos_th;
         double m_pos_r;

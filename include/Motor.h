@@ -4,7 +4,8 @@
 #include <iostream>
 #include <wiringPi.h>
 
-#include "hardware_config.h"
+#include "config.h"
+#include "StepSequence.h"
 
 class Motor
 {
@@ -15,15 +16,17 @@ class Motor
         void release_break();
         void apply_break();
         void set_delay(int ms);
+        int get_steps_in_full_rotation();
     
     private:
         bool get_bit(int num, int loc);
         void update_step_ctr(bool dir);
 
-        int m_step_ctr;
-        int m_delay_ms;
+        StepSequence m_step_seq = StepSequence(config::init_step_seq_len);
+
+        int m_step_ctr = 1;
+        // int m_delay_ms = config::init_delay_ms;
         int m_pins[];
-        int m_step_seq[];
 };
 
 #endif

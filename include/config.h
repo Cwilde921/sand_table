@@ -2,7 +2,7 @@
 #define __config_h
 
 #include <string>
-#include "../include/StepSequence.h"
+// #include "StepSequence.h"
 
 namespace config
 {
@@ -16,8 +16,8 @@ namespace config
     const int pins_r[] = {0,2,3,12};
 
     const int init_delay_ms = 3;
-
-    StepSequence step_seq = StepSequence(4);
+    const int init_step_seq_len = 4;
+    // StepSequence step_seq = StepSequence(4);
 }
 
 #endif
