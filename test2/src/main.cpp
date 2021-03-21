@@ -9,7 +9,7 @@ int main()
 
     mtr.step_inner(false, mtr.get_steps_in_full_rotation(), true);
 
-    delete mtr;
+    // delete mtr;
 
     return 0;
 }
