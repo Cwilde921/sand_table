@@ -24,11 +24,11 @@ class Motor
         bool get_bit(int num, int loc);
         void update_step_ctr(bool dir);
 
-        double pos_step_size;
-        double pos_step_size_2;
-        double pos;
-        double max_pos;
-        double min_pos;
+        // double pos_step_size;
+        // double pos_step_size_2;
+        // double pos;
+        // double max_pos;
+        // double min_pos;
 
         StepSequence m_step_seq = StepSequence(config::init_step_seq_len);
 
