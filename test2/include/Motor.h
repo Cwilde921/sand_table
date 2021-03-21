@@ -12,7 +12,7 @@ class Motor
     public:
         Motor(int pins[]);
         ~Motor();
-        void step(bool dir, uint steps, bool do_delay);
+        void step_inner(bool dir, uint steps, bool do_delay);
         void step(int step);
         void release_break();
         void apply_break();

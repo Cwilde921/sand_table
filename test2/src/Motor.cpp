@@ -24,10 +24,10 @@ void Motor::step(int step){
     switch(step)
     {
         case 1:
-            step(true, 1, false);
+            step_inner(true, 1, false);
             break;
         case -1:
-            step(false, 1, false);
+            step_inner(false, 1, false);
             break;
         case 0:
         default:
@@ -35,7 +35,7 @@ void Motor::step(int step){
     }
 }
 
-void Motor::step(bool dir, uint steps, bool do_delay)
+void Motor::step_inner(bool dir, uint steps, bool do_delay)
 {
     for(int i=0; i<steps; i++)
     {
