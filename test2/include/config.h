@@ -13,8 +13,8 @@ namespace config
     const double gear_ratio_turn_table = 20;  //defined by turntable gear / theta stepper gear
     const double gear_ratio_rack_pinion = 10;  //defined by rack / pinion
 
-    const int pins_th[] = {4,5,6,10};
-    const int pins_r[] = {0,2,3,12};
+    const int pins_th[4] = {4,5,6,10};
+    const int pins_r[4] = {0,2,3,12};
 
     const int init_delay_ms = 3; //recommended max 3 for 4 step or 2 for 8 step
     const int init_step_seq_len = 4;
