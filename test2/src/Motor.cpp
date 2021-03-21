@@ -6,7 +6,11 @@ Motor::Motor(int pins[4])
     :
         m_delay_ms() 
     {
-        m_pins = pins;
+        std::cout << "delay : " << m_delay_ms <<std::endl;
+        for(int i=0; i<4; i++)
+        {
+            m_pins[i] = pins[i];
+        }
         for (int i=0; i<4; i++)
         {
             pinMode(m_pins[i], OUTPUT);

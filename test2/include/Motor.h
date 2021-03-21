@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <wiringPi.h>
+#include <array>
 
 #include "config.h"
 #include "StepSequence.h"
@@ -34,7 +35,8 @@ class Motor
 
         int m_step_ctr = 1;
         int m_delay_ms = config::init_delay_ms;
-        int m_pins[4];
+        // int m_pins[4];
+        std::array<int, 4> m_pins;
 };
 
 #endif
