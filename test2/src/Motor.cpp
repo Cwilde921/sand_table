@@ -24,10 +24,10 @@ void Motor::step(int step){
     switch(step)
     {
         case 1:
-            step(true, 1, false)
+            step(true, 1, false);
             break;
         case -1:
-            step(false, 1, false)
+            step(false, 1, false);
             break;
         case 0:
         default:
@@ -74,7 +74,7 @@ void Motor::set_delay(int ms)
 
 int Motor::get_steps_in_full_rotation()
 {
-    return m_step_seq.full_rot()
+    return m_step_seq.full_rot();
 }
 
 bool Motor::get_bit(int num, int loc)
@@ -96,7 +96,7 @@ void Motor::update_step_ctr(bool dir)
         m_step_ctr --;
         if( m_step_ctr < 0 )
         {
-            m_strp_ctr = m_step_seq.size()-1;
+            m_step_ctr = m_step_seq.size()-1;
         }
     }
 }
