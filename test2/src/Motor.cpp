@@ -2,9 +2,11 @@
 
 // ===== Motor implimentation =====
 Motor::Motor(int pins[4])
-    :   m_pins(pins), 
+    // :   m_pins(pins), 
+    :
         m_delay_ms() 
     {
+        m_pins = pins;
         for (int i=0; i<4; i++)
         {
             pinMode(m_pins[i], OUTPUT);

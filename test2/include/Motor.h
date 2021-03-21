@@ -34,7 +34,7 @@ class Motor
 
         int m_step_ctr = 1;
         int m_delay_ms = config::init_delay_ms;
-        int m_pins[];
+        int m_pins[4];
 };
 
 #endif
