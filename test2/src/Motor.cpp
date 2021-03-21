@@ -3,7 +3,7 @@
 // ===== Motor implimentation =====
 Motor::Motor(int pins[])
     :   m_pins(pins), 
-        m_delay_ms(config::init_delay_ms) 
+        m_delay_ms() 
     {
         for (int i=0; i<4; i++)
         {
@@ -35,7 +35,7 @@ void Motor::step(int step){
     }
 }
 
-void Motor::step(bool dir, uint steps=1, bool do_delay=false)
+void Motor::step(bool dir, uint steps, bool do_delay)
 {
     for(int i=0; i<steps; i++)
     {
@@ -55,7 +55,7 @@ void Motor::release_break()
 {
     for(int i=0; i<4; i++)
     {
-        digitalWrite(m_pins[i], LOW)
+        digitalWrite(m_pins[i], LOW);
     }
 }
 
@@ -63,7 +63,7 @@ void Motor::apply_break()
 {
     for(int i=0; i<4; i++)
     {
-        digitalWrite(m_pins[j], get_bit( m_step_seq[m_step_ctr], i ) ? HIGH : LOW );
+        digitalWrite(m_pins[i], get_bit( m_step_seq[m_step_ctr], i ) ? HIGH : LOW );
     }
 }
 

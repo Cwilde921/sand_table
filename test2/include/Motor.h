@@ -12,7 +12,7 @@ class Motor
     public:
         Motor(int pins[]);
         ~Motor();
-        void step(bool dir, uint steps=1, bool do_delay=false);
+        void step(bool dir, uint steps, bool do_delay);
         void step(int step);
         void release_break();
         void apply_break();
@@ -32,8 +32,8 @@ class Motor
 
         StepSequence m_step_seq = StepSequence(config::init_step_seq_len);
 
-        // int m_step_ctr = 1;
-        // int m_delay_ms = config::init_delay_ms;
+        int m_step_ctr = 1;
+        int m_delay_ms = config::init_delay_ms;
         int m_pins[];
 };
 
