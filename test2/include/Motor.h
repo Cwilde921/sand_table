@@ -11,7 +11,7 @@
 class Motor
 {
     public:
-        Motor(int pins[4]);
+        Motor(const int pins[4]);
         ~Motor();
         void step_inner(bool dir, uint steps, bool do_delay);
         void step(int step);

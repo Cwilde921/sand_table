@@ -1,7 +1,7 @@
 #include "Motor.h"
 
 // ===== Motor implimentation =====
-Motor::Motor(int pins[4])
+Motor::Motor(const int pins[4])
     // :   m_pins(pins), 
     :
         m_delay_ms() 

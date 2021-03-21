@@ -3,6 +3,11 @@
 #include <iostream>
 #include <array>
 
+int test(const int a)
+{
+    return a * 2;
+}
+
 int main()
 {
 
@@ -20,6 +25,8 @@ int main()
     std::array<int, 4> b;
     b[0] = a[0];
     std::cout << b[0];
+
+    std::cout << test(3);
 
     return 0;
 }
