@@ -1,10 +1,10 @@
-#include "GCReader.h"
+#include "PatternReader.h"
 
-GCReader::GCReader()
+PatternReader::PatternReader()
     : m_line_ct(0)
 {}
 
-GCReader::GCcmd::set(char s, float value)
+PatternReader::PCMD::set(char s, float value)
 {
     {
         switch (s)
@@ -30,12 +30,12 @@ GCReader::GCcmd::set(char s, float value)
     }
 }
 
-void GCReader::get_file()
+void PatternReader::get_file()
 {
 
 }
 
-void GCReader::get_file(std::string filename)
+void PatternReader::get_file(std::string filename)
 {
     std::ifstream file;
     file.open(filename, std::ios::in);
@@ -46,25 +46,25 @@ void GCReader::get_file(std::string filename)
     file.close();
 }
 
-void GCReader::clear_file() 
+void PatternReader::clear_file() 
 {
     m_file_cont->empty();
     m_line_ct = 0;
 }
 
-bool GCReader::is_next()
+bool PatternReader::is_next()
 {
     return m_line_ct < m_file_cont->size();
 }
 
-GCReader::GCcmd GCReader::next()
+PatternReader::PCMD PatternReader::next()
 {
     std::string line = m_file_cont[m_line_ct];
     m_line_ct ++;
     return read_line(line);
 }
 
-GCReader::read_line(std::string line)
+PatternReader::read_line(std::string line)
 {
     std::vector<int> flag_locs;
     const std::string m_flags[] = {"G", "X", "Y", "R", "T"};
@@ -87,7 +87,7 @@ GCReader::read_line(std::string line)
             }
         }
     }
-    GCcmd res;
+    PCMD res;
     flag_locs.push_back(line.size());
     std::vector<float> res;
     for (std::vector<int>::iterator it = flag_locs.begin() ; it != flag_locs.end()-1; ++it)

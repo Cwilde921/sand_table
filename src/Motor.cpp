@@ -3,10 +3,11 @@
 // ===== Motor implimentation =====
 Motor::Motor(int pins[])
     :   m_pins(pins), 
-        // m_step_ctr(1),
+                // m_step_ctr(1),
         // m_delay_ms() 
     {
-        m_step_seq = use_4_step ? steps_in_4_step_rotation : steps_in_8_step_rotation;
+        // m_step_seq = use_4_step ? steps_in_4_step_rotation : steps_in_8_step_rotation;
+
         for (int i=0; i<4; i++)
         {
             pinMode(motorPins[i], OUTPUT);
@@ -16,6 +17,21 @@ Motor::Motor(int pins[])
 Motor::~Motor()
 {
     release_break();
+}
+
+void Motor::step(int step){
+    switch(step)
+    {
+        case 1:
+            step(true, 1, false)
+            break;
+        case -1:
+            step(false, 1, false)
+            break;
+        case 0:
+        default:
+            break;
+    }
 }
 
 void Motor::step(bool dir, uint steps=1, bool do_delay=false)

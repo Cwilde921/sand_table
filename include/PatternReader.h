@@ -1,5 +1,5 @@
-#ifndef __g_c_reader_h
-#define __g_c_reader_h
+#ifndef __pattern_reader_h
+#define __pattern_reader_h
 
 #include <string>
 #include <memory>
@@ -11,14 +11,14 @@
 
 #include "config.h"
 
-class GCReader
+class PatternReader
 {
     public:
-        GCReader();
+        PatternReader();
 
-        struct GCcmd
+        struct PCMD
         {
-            GCcmd();
+            PCMD();
             int g;
             float x;
             float y;
@@ -31,11 +31,11 @@ class GCReader
         void get_file(std::string filename);
         void clear_file();
         bool is_next();
-        GCcmd next();
+        PCMD next();
 
 
     private:
-        GCcmd read_line(std::string line);
+        PCMD read_line(std::string line);
 
         std::shared_ptr<std::vector<std::string>> m_file_cont;
         const std::string m_cmds[] = {"G01"};
