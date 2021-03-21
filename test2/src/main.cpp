@@ -3,7 +3,7 @@
 
 int main()
 {
-    Motor mtr = Motor(config::pins_r);
+    Motor mtr = Motor(config::pins_th);
 
     mtr.step(true, mtr.get_steps_in_full_rotation(), true);
 

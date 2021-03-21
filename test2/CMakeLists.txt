@@ -23,3 +23,4 @@ add_executable(test2 ${SOURCES})
 
 # target_link_libraries(sand_table PRIVATE Threads::Threads)
 target_link_libraries(test2 ${WIRINGPI_LIBRARIES})
+# target_link_libraries(test2 PRIVATE WiringPi::WiringPi)

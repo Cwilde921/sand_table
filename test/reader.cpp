@@ -24,7 +24,7 @@ void read(std::string filename)
     file.close();
 }
 
-void read_line(std::string line)
+void read_line_gcd(std::string line)
 {
     std::vector<int> flag_locs;
     const std::string m_flags[] = {"G", "X", "Y", "R", "T"};
@@ -58,11 +58,49 @@ void read_line(std::string line)
     }
 }
 
+void read_line_thr(std::string line)
+{
+    std::vector<std::string> nums;
+    int start = -1;
+    for(int i=0; i<line.size(); i++)
+    {
+        if(line.at(i) == ' ')
+        {
+            if(start > -1) 
+            {
+                nums.push_back(line.substr( start, i-start ));
+                start = -1;
+            }
+        }
+        else if(line.at(i) == '#')
+        {
+            break;
+        }
+        else
+        {
+            if(start == -1)
+            {
+                start = i;
+            }
+        }
+    }
+    if(start > -1){
+        nums.push_back(line.substr( start, line.size()-start ));
+    }
+    // std::cout << nums.size() <<std::endl;
+    for(int i=0; i<nums.size(); i++)
+    {
+        std::cout << nums.at(i) << '|' << std::endl;
+    }
+}
+
 int main() 
 {
     // read("../patterns/sandify.gcode");
     std::string c = "G01 X5.66 T 567 Y32.6";
-    read_line(c);
+    std::string t = "  1.57080 0.01414 8.2934  ";
+    std::cout << "starting reader" << std::endl;
+    read_line_thr(t);
 
     return 0;
 }
