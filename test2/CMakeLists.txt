@@ -10,6 +10,7 @@ include_directories(include)
 # find_package(Threads REQUIRED)
 
 # #Link wiringPi
+find_library(wiringPi_LIB wiringPi)
 # find_package(WiringPi REQUIRED)
 # include_directories(${WIRINGPI_INCLUDE_DIRS})
 
@@ -25,4 +26,5 @@ add_executable(test2 ${SOURCES})
 # target_link_libraries(test2 ${WIRINGPI_LIBRARIES})
 # target_link_libraries(test2 PRIVATE WiringPi::WiringPi)
 
-add_definitions(-std=c++0x -L/usr/lib/libwringPi.so -lwiringPi -lpthread)
+target_link_libraries(test2 ${wiringPi_LIB})
+# add_definitions(-std=c++0x -L/usr/lib/libwringPi.so -lwiringPi -lpthread)
