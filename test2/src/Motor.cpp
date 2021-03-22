@@ -2,10 +2,8 @@
 
 // ===== Motor implimentation =====
 Motor::Motor(const int pins[4])
-    // :   m_pins(pins), 
-    :
-        m_delay_ms() 
     {
+        m_delay_ms = config::init_delay_ms
         std::cout << "delay : " << m_delay_ms <<std::endl;
         for(int i=0; i<4; i++)
         {
