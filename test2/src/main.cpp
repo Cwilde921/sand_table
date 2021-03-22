@@ -3,6 +3,8 @@
 
 int main()
 {
+    wiringPiSetup();
+
     Motor mtr = Motor(config::pins_th);
 
     mtr.step_inner(true, mtr.get_steps_in_full_rotation(), true);
