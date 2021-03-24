@@ -3,8 +3,12 @@
 // ===== Motor implimentation =====
 Motor::Motor(const int pins[4])
     {
-        m_delay_ms = config::init_delay_ms
-        std::cout << "delay : " << m_delay_ms <<std::endl;
+	//if(wiringPiSetup() == -1)
+	//{
+	//    std::cout << "wiringPi setup failed" <<std::endl;
+	//}
+        m_delay_ms = config::init_delay_ms;
+        std::cout << "Motor constructor - delay : " << m_delay_ms <<std::endl;
         for(int i=0; i<4; i++)
         {
             m_pins[i] = pins[i];
@@ -41,17 +45,20 @@ void Motor::step(int step){
 
 void Motor::step_inner(bool dir, uint steps, bool do_delay)
 {
+    // std::cout << "starting step inner" << std::endl;
     for(int i=0; i<steps; i++)
     {
         update_step_ctr(dir);
         for(int j=0; j<4; j++)
         {
             digitalWrite(m_pins[j], get_bit(m_step_seq[m_step_ctr], j) ? HIGH : LOW );
+	    // std::cout << "writing pins" << std::endl;
         }
-    }
-    if(do_delay)
-    {
-        delay(m_delay_ms);
+        if(do_delay)
+        {
+	    // std::cout << "starting delay" << std::endl;
+            delay(m_delay_ms);
+        }
     }
 }
 

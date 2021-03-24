@@ -4,6 +4,7 @@
 int main()
 {
     wiringPiSetup();
+    std::cout << "starting main" << std::endl;
 
     Motor mtr = Motor(config::pins_th);
 
