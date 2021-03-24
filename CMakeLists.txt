@@ -9,8 +9,9 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
 #Link wiringPi
-find_package(WiringPi REQUIRED)
-include_directories(${WIRINGPI_INCLUDE_DIRS})
+find_library(wiringPi_LIB wiringPi)
+# find_package(WiringPi REQUIRED)
+# include_directories(${WIRINGPI_INCLUDE_DIRS})
 
 #Can manually add the sources using the set command as follows:
 set(SOURCES src/main.cpp src/Table.cpp src/Motor.cpp)
@@ -21,4 +22,5 @@ file(GLOB SOURCES "src/*.cpp")
 add_executable(sand_table ${SOURCES})
 
 target_link_libraries(sand_table PRIVATE Threads::Threads)
-target_link_libraries(sand_table ${WIRINGPI_LIBRARIES})
+target_link_libraries(test2 ${wiringPi_LIB})
+# target_link_libraries(sand_table ${WIRINGPI_LIBRARIES})
